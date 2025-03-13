@@ -360,7 +360,7 @@ body::before {
   opacity: 0;
 }
 #banner .char-left {
-  border-left: 1px solid var(--banner-line-color);
+  border-left: 0 solid var(--banner-line-color);
   border-right: 0px solid rgba(0,120,231,0.1);
   border-right-width: 0px;
   animation-duration: 0.4s;
@@ -370,7 +370,7 @@ body::before {
 }
 #banner .char-right {
   border-left: 0px solid rgba(0,120,231,0.1);
-  border-right: 1px solid var(--banner-line-color);
+  border-right: 0 solid var(--banner-line-color);
   border-left-width: 0px;
   animation-duration: 0.4s;
   animation-delay: 0.4s;
@@ -2076,6 +2076,25 @@ body::before {
 }
 #say #say-from {
   display: block;
+}
+.notice {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Songti SC', 'Noto Serif SC', STZhongsong, STKaiti, KaiTi, Roboto, serif;
+  font-weight: bold;
+  padding: 1rem;
+  margin: 1rem auto;
+  border: 1px solid #000;
+  max-width: calc(900px - 2rem);
+  background-color: rgba(255,255,255,0.3);
+}
+@media screen and (max-width: 768px) {
+  .notice {
+    border-left-width: 0px;
+    border-right-width: 0px;
+  }
 }
 iframe.bilibili-video {
   width: 100%;
