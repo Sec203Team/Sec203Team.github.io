@@ -1,7 +1,6 @@
-http://example.com/2025/03/12/2025GHCTF%E6%96%B0%E7%94%9F%E8%B5%9B(%E6%82%84%E6%82%84%E5%A1%9E%E5%9B%BD%E9%99%85%E9%A2%98)/
-http://example.com/2025/03/09/[GHCTF%202025]SQL/
-http://example.com/2025/03/09/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0203/
-http://example.com/2025/03/09/hello-world/
+http://example.com/article/2025/03/2025GHCTF-wp.html/
+http://example.com/article/2025/03/welcome-203.html/
+http://example.com/article/2025/03/undefined.html/
 http://example.com/
 http://example.com/tags/web/
 http://example.com/tags/CTF/
