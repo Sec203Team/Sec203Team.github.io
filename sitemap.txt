@@ -1,8 +1,10 @@
 http://example.com/article/2025/03/2025GHCTF-wp.html/
+http://example.com/article/2025/03/2025.3.15-practice-wp.html/
 http://example.com/article/2025/03/welcome-203.html/
 http://example.com/article/2025/03/undefined.html/
 http://example.com/
 http://example.com/tags/web/
 http://example.com/tags/CTF/
+http://example.com/tags/203%E7%BB%83%E4%B9%A0%E8%B5%9B/
 http://example.com/tags/%E7%AE%80%E4%BB%8B-203/
 http://example.com/categories/Sec203Team/
